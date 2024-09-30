@@ -1,0 +1,163 @@
+body {
+    background-color: rgb(17, 17, 17);
+}
+
+
+hr{
+    border:0.3px solid rgb(90, 90, 90);
+}
+
+a{
+    text-decoration: none;
+}
+
+
+.flexbox{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    padding-top: 10%;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+
+@media (max-width:700px){
+    #footer{
+        padding-top: 0px;
+    }
+}
+
+
+
+
+#footerLogo {
+    color: rgb(122, 122, 122);
+    font-weight: bold;
+    font-style: italic;
+    border: 0px solid white;
+    margin-top: 0%;
+    font-size: 210px;
+    letter-spacing: -14px;
+    font-family: monospace;
+}
+@media (max-width: 700px){
+    #footerLogo{font-size: 110px;}
+}
+
+
+
+td{text-align: center;}
+
+#loginCard {
+    background-color: rgb(17, 17, 17);
+    border: 0px solid white;
+    box-shadow: 0px 0px 100px  rgb(17, 12, 58);
+    border-radius: 5px;
+    /* padding: 1% 1%; */
+    /* margin-top: 0%; */
+    width: 550px;
+    /* color: rgb(212, 212, 212); */
+}
+
+@media (max-width: 700px){
+    #loginCard{
+        background-color: rgb(17, 17, 17);
+        box-shadow: 0px 0px 100px  rgb(17, 12, 58);
+        border-radius: 5px;
+        /* margin-top: 15%; */
+        width: 350px;
+    }
+}
+
+#loginCard td{
+    border: 0px solid white;
+    /* padding: 5%; */
+    
+}
+
+
+
+
+#dataEnter {
+    text-align: center;
+    color: rgb(219, 219, 219);
+    font-size: 36px;
+    font-family: monospace;
+}
+
+@media (max-width:700px) {
+    #dataEnter{
+        font-size: 25px;
+    }
+}
+
+
+.data {
+    font-family: monospace;
+    margin: 15%;
+    color: rgb(190, 190, 190);
+    font-weight: 100;
+    font-size: 24px;
+}
+
+
+@media (max-width:700px) {
+    .data{
+        font-size: 17px;
+        margin: 35%;
+    }
+}
+
+.dataInput {
+    background-color: rgb(38, 38, 38);
+    border: 1px solid rgb(84, 84, 84);
+    width: 50%;
+    height: 25px;
+    /* margin: 5%; */
+    color: white;
+    /* height: 25px; */
+}
+
+
+
+#makeEntry {
+    background-color: rgb(39, 39, 39);
+    height: 40px;
+    margin-top: 20px;
+    width: 150px;
+    margin-bottom: 20px;
+    font-family: monospace;
+    transition-duration: 0.2s;
+    font-size: 20px;
+    border: 1px solid rgb(124, 124, 124);
+    color: rgb(190, 190, 190);
+}
+
+#makeEntry:hover {
+    background-color: rgb(163, 163, 163);
+    color: rgb(41, 41, 41);
+}
+
+
+
+#oldUser {
+    color: white;
+    font-size: 19px;
+    /* margin-left: 5%; */
+    text-decoration: none;
+    font-family: monospace;
+}
+
+
+@media (max-width:700px) {
+    #oldUser{
+        font-size: 15px;
+    }
+}
+
+
+#msg1{
+    color: rgb(255, 135, 135);
+    size: 15px;
+    font-family: monospace;
+}
