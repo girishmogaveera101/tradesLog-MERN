@@ -31,7 +31,7 @@ function Signin() {
         });
         if(response.status==200){
             
-            navigate('/home');
+            navigate('/home', {state : {username,password}});
         }
         if(response.status==400){
             setmsg1("Account already exists!")

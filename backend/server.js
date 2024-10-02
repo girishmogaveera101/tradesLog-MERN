@@ -1,7 +1,8 @@
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const mongo = require('mongoose')
+const mongo = require('mongoose');
+const { default: mongoose } = require('mongoose');
 
 
 const server = express();
@@ -48,21 +49,43 @@ server.post('/login', async(req,res) => {
     if(!username){
         res.json({msg:"error"});
     }
+    console.log(username,password)
     const trueUser = await signinData.findOne({username});
+    const trueUser1 = await signinData.findOne({password});
+
     if(trueUser){
-        res.status(200).json(trueUser)
+        if(trueUser1){
+            res.status(200).json(trueUser)
+            console.log("successfull login")
+        }
+        else{
+            res.status(401).json({"msg" : "Incorrect Password.."})
+            console.log("incorrect password")
+        }
     }
     else{
         res.status(404).json({"msg" : "User not found.."});
+        console.log("user not found")
     }
 });
 
-server.post('/home',async(req,res)=> {
-    const {tradeID,comment} = req.body;
-    if(tradeID){
-        console.log(tradeID);
+server.post('/entry',async(req,res)=> {
+    const {username,tradeID,comment} = req.body;
+    if(!username || !tradeID || !comment){
+        res.status(404).send({msg:"error 1"});
     }
-    res.send({msg:"new Entry Recieved"});
+    const userCol = mongoose.connection.createCollection(username);
+    const entry = {
+        tradeID, comment
+    }
+    const status = await (await userCol).insertOne(entry);
+    if(status){
+        res.status(200).send({msg:"Success"})
+    }
+    else{
+        res.status(404).send({msg:"error 2"});
+    }
+   
 });
 
 

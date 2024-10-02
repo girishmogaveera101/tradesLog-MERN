@@ -1,25 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import styles from '../css/home.module.css';
-import { Link } from 'react-router-dom';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 
 
 function Home() {
 
 
-
     const location = useLocation();
-    const userData = location.state?.user; // Access the JSON object from state
+    const {username,password} = location.state || {};
+
+
 
     // usestate variables
     const [tradeID, setTradeID] = useState("");
     const [coin, setCoin] = useState("");
     const [amount, setAmount] = useState("");
     const [strategy, setStrategy] = useState("");
+    const [leverage, setLeverage] = useState("");
     const [entryPrice, setEntryPrice] = useState("");
-    const [TargetPrice, setTargetPrice] = useState("");
-    const [stopLossPrice, setStopLossPrice] = useState("");
+    const [exitPrice, setExitPrice] = useState("");
     const [entryDate, setEntryDate] = useState("");
     const [closeDate, setCloseDate] = useState("");
     const [pnl, setPnl] = useState("");
@@ -29,13 +29,21 @@ function Home() {
 
     const newTradeEntry = async (e) => {
         e.preventDefault()
-        const newEntry = { tradeID, comment };
-        const response = await fetch('http://localhost:3001/home', {
+        const newEntry = { 
+            username : username,
+            tradeID : tradeID, 
+            comment : comment
+        };
+        console.log(tradeID)
+        const response = await fetch('http://localhost:3001/entry', {
             body: JSON.stringify(newEntry),
-            headers: { 'Content-Type': 'application/josn' },
+            headers: { 'Content-Type': 'application/json' },
             method: 'POST'
         });
         const responseData = await response.json();
+        if(response.status == 200){
+            console.log("sent successfully")
+        }
         console.log(responseData);
     }
 
@@ -50,13 +58,16 @@ function Home() {
                         <th>
                             <p id={styles.headermain1} className={styles.headerMain1}>TLog</p>
                         </th>
+                        <th>
+                            <p id={styles.profile}>{username}</p>
+                        </th>
                     </tr>
                 </thead>
             </table>
 
 
             <Link to="/">
-                <p id={styles.allTrades}>See all trades + {userData ? {userData} : {}} </p>
+                <p id={styles.allTrades}>See all trades </p>
             </Link>
 
 
@@ -78,7 +89,7 @@ function Home() {
                                         <p className={styles.data}>Trade ID</p>
                                     </td>
                                     <td>
-                                        <input className={styles.dataInput} type="number" name="tNo" value={tradeID} onChange={(e) => { setTradeID(e.target.value) }} required />
+                                        <input className={styles.dataInput} type="number" name="tNo" value={tradeID} onChange={(e) => { setTradeID(e.target.value) }}  required/>
                                     </td>
                                 </tr>
                             </tbody>
@@ -104,7 +115,7 @@ function Home() {
                                     <p className={styles.data}>Amount(Rs)</p>
                                 </td>
                                 <td>
-                                    <input className={styles.dataInput} type="number" value={amount} onChange={(e) => { setAmount(e.target.value) }} required />
+                                    <input className={styles.dataInput} type="number" value={amount} onChange={(e) => { setAmount(e.target.value) }}  />
                                 </td>
                             </tr>
                             <tr>
@@ -122,26 +133,26 @@ function Home() {
                             </tr>
                             <tr>
                                 <td>
-                                    <p className={styles.data}>Entry price</p>
+                                    <p className={styles.data}>Leverage</p>
                                 </td>
                                 <td>
-                                    <input className={styles.dataInput} type="number" value={entryPrice} onChange={(e) => setEntryPrice(e.target.value)} required />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <p className={styles.data}>Target price</p>
-                                </td>
-                                <td>
-                                    <input className={styles.dataInput} type="number" value={TargetPrice} onChange={(e) => setTargetPrice(e.target.value)} required />
+                                    <input className={styles.dataInput} type="number" value={leverage} onChange={(e) => setLeverage(e.target.value)}  />
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <p className={styles.data}>Stop loss Price</p>
+                                    <p className={styles.data}>Coin Entry price</p>
                                 </td>
                                 <td>
-                                    <input className={styles.dataInput} type="number" value={stopLossPrice} onChange={(e) => setStopLossPrice(e.target.value)} required />
+                                    <input className={styles.dataInput} type="number" value={entryPrice} onChange={(e) => setEntryPrice(e.target.value)}  />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p className={styles.data}>Coin Exit Price</p>
+                                </td>
+                                <td>
+                                    <input className={styles.dataInput} type="number" value={exitPrice} onChange={(e) => setExitPrice(e.target.value)}  />
                                 </td>
                             </tr>
                             <tr>
@@ -149,7 +160,7 @@ function Home() {
                                     <p className={styles.data}>Entry Date</p>
                                 </td>
                                 <td>
-                                    <input className={styles.dataInput} type="date" value={entryDate} onChange={(e) => setEntryDate(e.target.value)} required />
+                                    <input className={styles.dataInput} type="date" value={entryDate} onChange={(e) => setEntryDate(e.target.value)}  />
                                 </td>
                             </tr>
                             <tr>
@@ -182,7 +193,7 @@ function Home() {
                             <tbody>
                                 <tr>
                                     <td colSpan="2">
-                                        <input type="submit" id={styles.coinmakeEntry} value="Make Entry" />
+                                        <input type="submit" id={styles.makeEntry} value="Make Entry" />
                                     </td>
                                 </tr>
                             </tbody>

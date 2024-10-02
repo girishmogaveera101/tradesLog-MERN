@@ -7,10 +7,9 @@ function Login() {
     
 
     const navigate = useNavigate();
+    // msg object 
     const[msg1, setmsg1]= useState('');
 
-    // user data
-    const [userData, setUserData] = useState(null);
 
     // usestate variables
     const [username, setUsername] = useState('');
@@ -30,13 +29,14 @@ function Login() {
         });
         const responseData = await response.json();
         if(response.status==200){
-            setUserData(responseData);
-            var username = responseData.username;
-            navigate('/home', { state: { user: userData } });
+            navigate('/home', { state: { username,password } });
             console.log(responseData);
         }
         if(response.status==404){
             setmsg1("Account not found!");
+        }
+        if(response.status==401){
+            setmsg1("Incorrect password!");
         }
     };
 

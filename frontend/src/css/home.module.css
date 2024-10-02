@@ -8,43 +8,53 @@ a{
 }
 
 
-
 .flexbox{
     display: flex;
     margin: 0;
     flex-direction: row;
     border: 0px solid pink;
     height: 70%;
-    width: 99%;
+    width: 100%;
     flex-wrap: wrap;
-    align-items: space-around;
-    justify-content: space-evenly;
+    align-items: space-evenly;
+    justify-content: space-between;
 }
 
 .flexitem1{
-    border: 1px solid white;
+    border: 0px solid white;
     width: 500px;
-    padding: 5%;
+    padding: 0% 10%;
+}
+
+@media (max-width : 700px){
+    .flexitem1{
+        width: 100%;
+        margin-bottom: 50px;
+    }
 }
 
 .flexitem2{
-    border: 1px solid white;
-    background-color:  rgb(36, 36, 36);
+    border: 0px solid white;
+    background: linear-gradient(to bottom left, rgb(19, 19, 19), rgb(46, 46, 46));
     margin: 0 0%;
     /* height: 100%; */
     text-align: right;
-    width: 500px;
 }
-
+@media (max-width : 700px){
+    .flexitem2{
+        width: 1005;
+    }
+}
 
 
 
 
 #table1{
-    background-color: black;
+    background-color: rgb(10, 10, 10);
     height: 100px;
     width: 100%;
     top: 0%;
+    border: 0px solid white;
     position: fixed;
     border-bottom: 1px solid rgb(150, 150, 150);
 }
@@ -52,16 +62,29 @@ a{
 .headerMain1{
     color: rgb(122, 122, 122);
     margin-top: 0px;
+    width: 30%;
     font-weight: bold;
     font-style: italic;
     font-size: 50px;
+    border: 0px solid white;
     letter-spacing: -9px;
     margin-bottom: 0;
-    margin-left: 20.5%;
+    padding-left: 20.5%;
     text-align: left;
     font-family: monospace; 
 }
 
+#profile{
+    color: rgb(173, 173, 173);
+    float: right;
+    font-family: monospace;
+    font-weight: lighter;
+    letter-spacing: 2px;
+    margin-right: 50px;
+    font-size: 20px;
+    border: 0px solid white;
+    /* width: 40%; */
+}
 
 
 
@@ -71,14 +94,14 @@ a{
     font-size: 20px;
     font-family: monospace;
     margin-left: 10%;
-    color: rgb(134, 194, 192);
+    color: rgb(182, 182, 182);
 }
 
 #table2{
-    background-color: rgb(38, 38, 38);
+    background: linear-gradient(to bottom left, rgb(43, 43, 43), rgb(19, 19, 19));
     border-radius: 5px;
-    padding: 5% 5%;
-    margin-bottom: 30px;
+    /* padding: 5% 5%; */
+    /* margin-bottom: 30px; */
     color: white;
     width: 100%;
 }
@@ -91,7 +114,7 @@ a{
 .data{
     font-family: monospace;
     color: rgb(190, 190, 190);
-    font-size: 17px;
+    font-size: 16px;
 }
 .dataInput{
     background-color: rgb(38, 38, 38);
@@ -134,37 +157,58 @@ a{
 
 
 #footer{
-    background-color: rgb(37, 37, 37);
-    width:100%;
+    /* background: linear-gradient(to bottom left, rgb(19, 19, 19), rgb(46, 46, 46)); */
+    width:800px;
+}
+
+@media(max-width:700px){
+    #footer{
+        width:100%;
+    }
 }
 #footer td{
     border: 0px solid  white;
 }
 #footerText{
-    color: rgb(122, 122, 122);
+    color: rgb(107, 107, 107);
     font-weight: lighter;
-    font-size: 16px;
+    font-size: 18px;
     margin-bottom: 30px;
     letter-spacing: -2px;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
 }
+@media(max-width:700px){
+    #footerText{
+        font-size: 15px;
+    }
+}
 #footerLogo{
-    color: rgb(51, 51, 51);
+    color: rgb(92, 92, 92);
     margin-top: 30px;
     font-weight: bold;
     font-style: italic;
-    font-size: 90px;
+    font-size: 110px;
     letter-spacing: -14px;
     margin-bottom: 20px;
     text-align: center;
     font-family: monospace;   
 }
+@media(max-width:700px){
+    #footerLogo{
+        font-size: 70px;
+    }
+}
 #copyrightText{
-    color: rgb(122, 122, 122);
+    color: rgb(102, 102, 102);
     font-weight: lighter;
-    font-size: 15px;
+    font-size: 20px;
     margin-bottom: 10px;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
+}
+@media(max-width:700px){
+    #copyrightText{
+        font-size: 15px;
+    }
 }
