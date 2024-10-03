@@ -60,7 +60,11 @@ a{
 }
 
 .headerMain1{
-    color: rgb(122, 122, 122);
+    /* color: rgb(122, 122, 122); */
+    background-clip: text;
+    background: -webkit-linear-gradient(to right, #ff7e5f, #feb47b); /* Define the gradient colors */
+    -webkit-background-clip: text; /* Clip the background to the text */
+    -webkit-text-fill-color: transparent;
     margin-top: 0px;
     width: 30%;
     font-weight: bold;
@@ -94,7 +98,7 @@ a{
     font-size: 20px;
     font-family: monospace;
     margin-left: 10%;
-    color: rgb(182, 182, 182);
+    color: rgb(151, 151, 151);
 }
 
 #table2{
@@ -102,30 +106,31 @@ a{
     border-radius: 5px;
     /* padding: 5% 5%; */
     /* margin-bottom: 30px; */
-    color: white;
+    color: rgb(192, 192, 192);
     width: 100%;
 }
 #dataEnter{
     text-align: center;
-    color: rgb(219, 219, 219);
+    color: rgb(110, 110, 110);
     font-size: 23px;
     font-family: monospace;
 }
 .data{
     font-family: monospace;
-    color: rgb(190, 190, 190);
+    color: rgb(129, 129, 129);
     font-size: 16px;
 }
 .dataInput{
     background-color: rgb(38, 38, 38);
     border: 1px solid rgb(84, 84, 84);
-    color: white;
+    font-size: 15px;
+    color: rgb(151, 151, 151);
     height: 25px;
 }
 
 #sel1{
     background-color: rgb(38, 38, 38);
-    color: white;
+    color: rgb(148, 148, 148);
     height: 25px;
     font-family: monospace;
 }
@@ -139,7 +144,7 @@ a{
     transition-duration: 0.2s;
     font-size: 20px;
     border: 1px solid rgb(124, 124, 124);
-    color: rgb(190, 190, 190);
+    color: rgb(150, 150, 150);
 }
 #makeEntry:hover{
     background-color: rgb(163, 163, 163);
