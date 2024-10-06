@@ -1,0 +1,188 @@
+#table1 {
+    background-color: rgb(10, 10, 10);
+    height: 100px;
+    width: 100%;
+    top: 0%;
+    border: 0px solid white;
+    position: fixed;
+    border-bottom: 1px solid rgb(150, 150, 150);
+}
+
+.headerMain1 {
+    font-family: monospace;
+    font-size: 25px;
+    color: transparent;
+    background-clip: text;
+    background: -webkit-linear-gradient(40deg, #000000, #ececec);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-top: 0px;
+    /* width: 90%; */
+    font-weight: bold;
+    font-style: italic;
+    font-size: 50px;
+    border: 0px solid white;
+    letter-spacing: -9px;
+    margin-bottom: 0;
+    padding-left: 20.5%;
+    text-align: left;
+}
+
+#profile {
+    color: rgb(173, 173, 173);
+    float: right;
+    font-family: monospace;
+    font-weight: lighter;
+    letter-spacing: 2px;
+    margin-right: 50px;
+    font-size: 20px;
+    border: 0px solid white;
+}
+
+#updateTrades{
+    margin-top: 130px;
+    font-size: 20px;
+    font-family: monospace;
+    margin-left: 10%;
+    color: rgb(151, 151, 151);
+}
+
+p{
+    color: white;
+}
+
+
+body{background-color: rgb(0, 0, 0);
+    margin: 0 0;
+    padding: 0 0;}
+a{text-decoration: none;}
+
+
+
+
+
+
+
+#updateEntryCard{width: 80%;
+    top: 50%;
+    display: block;
+    left: 50%;
+    border-radius: 5px;
+    padding: 5px 10px;
+    transform: translate(-50%, -50%);
+    position: fixed;
+    box-shadow: 0px 0px 1000px rgba(0, 38, 255, 0.281);
+    background-color: rgb(38, 38, 38);}
+#updateEntryCard td{border: 0px solid white;
+    text-align: center;
+    width: 100%;
+    }
+#closeButton{background-color: rgb(38, 38, 38);
+    border: 1px solid rgb(38, 38, 38);
+    top: 2%;
+    right: 2%;
+    font-size: medium;
+    transition-duration: 0.3s;
+    position: fixed;
+    color: rgb(199, 199, 199);}
+#closeButton:hover{font-weight: bold;
+transform: rotateZ(360deg);}
+
+#dataEnter{text-align: center;
+    color: rgb(189, 189, 189);
+    font-size: 23px;
+    font-family: monospace;}
+.data{font-family: monospace;
+    color: rgb(199, 199, 199);
+    font-size: 17px;}
+.dataInput{background-color: rgb(38, 38, 38);
+    border: 0.5px solid rgb(199, 199, 199) ;
+    font-family: monospace;
+    color: rgb(199, 199, 199) ;
+    width: 96%;
+    height: 25px;}
+#sel1{background-color: rgb(38, 38, 38);
+    border: 1px solid rgb(199, 199, 199) ;
+    color: rgb(199, 199, 199) ;
+    height: 25px;
+    font-family: monospace;}
+#makeEntry{background-color: rgb(38, 38, 38);
+    height: 40px;
+    margin-top: 10px;
+    width: 150px;
+    margin-bottom: 10px;
+    font-family: monospace;
+    transition-duration: 0.2s;
+    font-size: 20px;
+    border: 1px solid rgb(199, 199, 199) ;
+    color: rgb(199, 199, 199) ;}
+#makeEntry:hover{background-color: rgb(199, 199, 199) ;
+    color: rgb(38, 38, 38);}
+
+
+
+
+
+
+
+#table2{width: 80%;
+    margin-left: 10%;
+    box-shadow: 0px 0px 25px rgb(37, 37, 37);
+    border-radius: 5px;
+    font-family: monospace;
+    color: rgb(225, 74, 255);
+    margin-bottom: 50px;
+    background: linear-gradient(110deg,rgb(32, 32, 32) 60%, rgb(44, 44, 44) 40%);}
+#table2 td{border: 1px solid white;
+    width: 25%;}
+#tradeID{
+    font-size: 24px;
+    font-weight: bold;
+    color: #836e6e;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#coin{font-size: 60px;
+    text-align: center;
+    color: rgb(129, 129, 91);
+    border: 0px solid white;
+    text-align: left;
+    font-weight: bolder;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+#footer{background-color: rgb(20, 20, 20);
+    width: 100%;
+    margin-top: 80px;}
+#footer td{border: 0px solid  white;}
+#footerText{color: rgb(122, 122, 122);
+    font-weight: lighter;
+    font-size: 16px;
+    margin-bottom: 30px;
+    letter-spacing: -2px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;}
+#footerLogo{color: rgb(51, 51, 51);
+    margin-top: 30px;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 90px;
+    letter-spacing: -14px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: monospace;   }
+#copyrightText{color: rgb(122, 122, 122);
+    font-weight: lighter;
+    font-size: 15px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;}

@@ -5,10 +5,31 @@ const mongo = require('mongoose');
 const { default: mongoose } = require('mongoose');
 
 
+
+
+
+
+
+
+
+
 const server = express();
 server.use(cors());
 server.use(bodyParser.text());
 server.use(bodyParser.json());
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 mongo.connect('mongodb://127.0.0.1:27017/MyDatabase')
     .then(() => {console.log("db connected..")})
@@ -22,6 +43,17 @@ const UserSchema = new mongo.Schema({
 });
 
 const signinData = mongo.model('signinData',UserSchema);
+
+
+
+
+
+
+
+
+
+
+
 
 server.post('/signin', async(req,res) => {
     const {username, email, phone , password} = req.body;
@@ -37,10 +69,18 @@ server.post('/signin', async(req,res) => {
     else{
         const temp = new signinData(newUserData);
         await temp.save();
+        const userCol = mongoose.connection.createCollection(username);
         // const newUser = {...temp,"msg":"signin successfull.."};
         res.status(200).json(temp);
     }
 });
+
+
+
+
+
+
+
 
 
 server.post('/login', async(req,res) => {
@@ -49,12 +89,13 @@ server.post('/login', async(req,res) => {
     if(!username){
         res.json({msg:"error"});
     }
-    console.log(username,password)
-    const trueUser = await signinData.findOne({username});
-    const trueUser1 = await signinData.findOne({password});
-
-    if(trueUser){
-        if(trueUser1){
+    // console.log(username,password)
+    const trueUser = await signinData.findOne({username,password});
+    const trueUser1 = await signinData.findOne({username});
+    console.log(trueUser)
+    if(trueUser1){
+        if(trueUser){
+            // console.log(trueUser)
             res.status(200).json(trueUser)
             console.log("successfull login")
         }
@@ -69,33 +110,63 @@ server.post('/login', async(req,res) => {
     }
 });
 
+
+
+
+
+
+
+
 server.post('/entry',async(req,res)=> {
-    const {username,tradeID,comment} = req.body;
-    if(!username || !tradeID || !comment){
+    const { username, tradeID, coin, amount, strategy, leverage, entryPrice, entryOn, closePrice, closeOn, pnl, comment } = req.body;
+    if(!username || !tradeID){
         res.status(404).send({msg:"error 1"});
     }
-    const userCol = mongoose.connection.createCollection(username);
-    const entry = {
-        tradeID, comment
+    // const tradeID = Math.floor(1000 + Math.random() * 9000);
+    const userCol = mongoose.connection.collection(username);
+    const isTradedID = await userCol.findOne({tradeID});
+    console.log(isTradedID)
+    if(isTradedID){
+        console.log("tradeId already exists");
+        return res.status(400).send({msg:"TradeID already Exists!"});
     }
-    const status = await (await userCol).insertOne(entry);
+    const entry = { tradeID,coin, amount, strategy, leverage, entryPrice, entryOn, closePrice, closeOn, pnl, comment }
+    console.log(entry);
+    const status = await userCol.insertOne(entry);
     if(status){
-        res.status(200).send({msg:"Success"})
+        return res.status(200).send({msg:"Success"})
     }
     else{
-        res.status(404).send({msg:"error 2"});
+        return res.status(404).send({msg:"error 2"});
     }
    
 });
 
 
-server.post('/allTrades',async(req,res)=> {
-    const {tradeID,comment} = req.body;
-    if(tradeID){
-        console.log(tradeID);
+
+
+
+
+server.post('/allentry', async(req,res) => {
+    const {username} = req.body;
+    const userCollect = mongoose.connection.collection(String(username));
+    const allEntry = await userCollect.find({}).toArray();
+    console.log(allEntry)
+    if(allEntry){
+        // res.send({msg : "ok"});
+        return res.send(allEntry).status(200);
     }
-    res.send({msg:"new Entry Recieved"});
-})
+    return res.send({msg : "No entry found!"}).status(404);
+    // console.log("Username : ",username)
+});
+
+
+
+
+
+
+
+
 
 
 server.listen(3001,() => {
