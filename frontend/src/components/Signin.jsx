@@ -24,7 +24,7 @@ function Signin() {
             phone:phone,
             password:password
         };
-        const response = await fetch('http://localhost:3001/signin',{
+        const response = await fetch('https://trades-log-mern.vercel.app/signin',{
             body:JSON.stringify(signinData),
             method:'POST',
             headers:{'Content-Type':'application/json'}

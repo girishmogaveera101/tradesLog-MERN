@@ -22,7 +22,7 @@ function Login() {
             username:username,
             password:password
         };
-        const response = await fetch('http://localhost:3001/login',{
+        const response = await fetch('https://trades-log-mern.vercel.app/login',{
             body:JSON.stringify(loginData),
             method:'POST',
             headers:{'Content-Type':'application/json'}
