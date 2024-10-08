@@ -21,6 +21,7 @@ const corsOptions = {
     origin: 'https://tradeslog.vercel.app', // Allow requests from your frontend
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', // Allowable methods
     credentials: true, // Allow credentials like cookies if needed
+    allowedHeaders: ['Content-Type', 'Authorization'],
     optionsSuccessStatus: 200 // Some legacy browsers choke on 204 status
   };
   

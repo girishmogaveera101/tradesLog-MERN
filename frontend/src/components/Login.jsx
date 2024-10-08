@@ -25,7 +25,8 @@ function Login() {
         const response = await fetch('https://trades-log-mern.vercel.app/login',{
             body:JSON.stringify(loginData),
             method:'POST',
-            headers:{'Content-Type':'application/json'}
+            headers:{'Content-Type':'application/json'},
+            credentials: 'include'
         });
         const responseData = await response.json();
         if(response.status==200){
