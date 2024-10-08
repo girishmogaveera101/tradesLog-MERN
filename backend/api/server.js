@@ -14,7 +14,17 @@ const port = process.env.PORT || 3000;
 
 
 const server = express();
-server.use(cors());
+// server.use(cors());
+
+
+const corsOptions = {
+    origin: 'https://tradeslog.vercel.app', // Allow requests from your frontend
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', // Allowable methods
+    credentials: true, // Allow credentials like cookies if needed
+    optionsSuccessStatus: 200 // Some legacy browsers choke on 204 status
+  };
+  
+server.use(cors(corsOptions));
 // server.use(bodyParser.text());
 server.use(express.urlencoded({ extended: true }));
 server.use(bodyParser.json());
