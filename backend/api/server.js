@@ -3,11 +3,11 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const mongo = require('mongoose');
 const { default: mongoose } = require('mongoose');
+require('dotenv').config();
 
 
 
-
-
+const port = process.env.PORT || 3000;
 
 
 
@@ -15,7 +15,8 @@ const { default: mongoose } = require('mongoose');
 
 const server = express();
 server.use(cors());
-server.use(bodyParser.text());
+// server.use(bodyParser.text());
+server.use(express.urlencoded({ extended: true }));
 server.use(bodyParser.json());
 
 
@@ -30,9 +31,14 @@ server.use(bodyParser.json());
 
 
 
+// for local machine
+// mongo.connect('mongodb://127.0.0.1:27017/MyDatabase')
 
-mongo.connect('mongodb://127.0.0.1:27017/MyDatabase')
-    .then(() => {console.log("db connected..")})
+//mongo atlas connection string
+// mongo.connect('mongodb+srv://girishmogaveera101:tradesLog@tradeslog.noaz7.mongodb.net/Mydatabase?retryWrites=true&w=majority')
+   
+mongo.connect(process.env.MONGO_URI)
+.then(() => {console.log("db connected..")})
     .catch(err=> console.log(err));
 
 const UserSchema = new mongo.Schema({
@@ -169,6 +175,6 @@ server.post('/allentry', async(req,res) => {
 
 
 
-server.listen(3001,() => {
-    console.log("Server listening on port 3001...")
+server.listen(port,() => {
+    console.log("Server listening...")
 });

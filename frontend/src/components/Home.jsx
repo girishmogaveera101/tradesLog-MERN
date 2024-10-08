@@ -201,7 +201,7 @@ function Home() {
                                         <p className={styles.data}>Comment</p>
                                     </td>
                                     <td>
-                                        <input className={styles.dataInput} placeholder='Ex : Hit TP ' type="text" value={comment} onChange={(e) => setComment(e.target.value)}  />
+                                        <input maxLength={60} className={styles.dataInput} placeholder='Ex : Hit TP ' type="text" value={comment} onChange={(e) => setComment(e.target.value)}  />
                                     </td>
                                 </tr>
                             </tbody>

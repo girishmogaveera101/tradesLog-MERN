@@ -11,6 +11,10 @@ function Alltrades() {
     const [datas, setData] = useState([]);
 
 
+    const toHome = () => {
+        navigate('/home', {state: {username}});
+    }
+
     useEffect(() => {
         const fetchData = async () => {
             const response = await fetch('http://localhost:3001/allentry', {
@@ -34,28 +38,30 @@ function Alltrades() {
                 <table id={styles.table2}>
                     <tbody>
                         <tr>
-                            <td colSpan={2}>
-                                <p id={styles.tradeID}>Trade ID : {tradeID}</p>
-                            </td>
-                            <td colSpan="2" rowSpan="4">
+                            <td colSpan={3}>
                                 <p id={styles.coin}>{coin}</p>
                             </td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <p id={styles.labels}>Amount</p>
-                            </td>
-                            <td colSpan={2}>
-                                <p id={styles.amount}>{amount}</p>
+                            <td rowSpan={2}>
+                                <p id={styles.tradeID}>{tradeID}</p>
                             </td>
                         </tr>
                     </tbody>
                     <tbody>
                         <tr>
+                            <td colSpan={1}>
+                                <p id={styles.amountL}>Amount</p>
+                            </td>
                             <td>
-                                <p id={styles.labels}>Strategy</p>
+                                <p id={styles.amount}>{amount} Rs</p>
+                            </td>
+                            {/* <td style={{width:'0%'}}>
+                            </td> */}
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <p id={styles.strategyL}>Strategy</p>
                             </td>
                             <td>
                                 <p id={styles.strategy}>{strategy}</p>
@@ -65,27 +71,27 @@ function Alltrades() {
                     <tbody>
                         <tr>
                             <td>
-                                <p id={styles.labels}>Leverage</p>
+                                <p id={styles.leverageL}>Leverage</p>
                             </td>
                             <td>
-                                <p id={styles.leverage}>{leverage}</p>
-                            </td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <p id={styles.labels}>Entry Price</p>
-                            </td>
-                            <td>
-                                <p id={styles.entryPrice}>{entryPrice}</p>
+                                <p id={styles.leverage}>{leverage}X</p>
                             </td>
                         </tr>
                     </tbody>
                     <tbody>
                         <tr>
                             <td>
-                                <p id={styles.labels}>Entry On</p>
+                                <p id={styles.entryPriceL}>Entry Price</p>
+                            </td>
+                            <td>
+                                <p id={styles.entryPrice}>{entryPrice} Rs</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <p id={styles.entryOnL}>Entry On</p>
                             </td>
                             <td>
                                 <p id={styles.entryOn}>{entryOn}</p>
@@ -95,17 +101,17 @@ function Alltrades() {
                     <tbody>
                         <tr>
                             <td>
-                                <p id={styles.labels}>Close Price</p>
+                                <p id={styles.closePriceL}>Close Price</p>
                             </td>
                             <td>
-                                <p id={styles.closePrice}>{closePrice}</p>
+                                <p id={styles.closePrice}>{closePrice} Rs</p>
                             </td>
                         </tr>
                     </tbody>
                     <tbody>
                         <tr>
                             <td>
-                                <p id={styles.labels}>Close On</p>
+                                <p id={styles.closeOnL}>Close On</p>
                             </td>
                             <td>
                                 <p id={styles.closeOn}>{closeOn}</p>
@@ -115,17 +121,17 @@ function Alltrades() {
                     <tbody>
                         <tr>
                             <td>
-                                <p id={styles.labels}>PNL</p>
+                                <p id={styles.pnlL}>PNL</p>
                             </td>
                             <td>
-                                <p id={styles.pnl}>{pnl}</p>
+                                <p id={styles.pnl}>{pnl} Rs</p>
                             </td>
                         </tr>
                     </tbody>
                     <tbody>
                         <tr>
-                            <td>
-                                <p id={styles.commentLabel}>Comments</p>
+                            <td style={{ wordWrap: 'break-word'}}>
+                                <p id={styles.commentL}>Comments</p>
                             </td>
                             <td colSpan="3">
                                 <p id={styles.comment}>{comment}</p>
@@ -133,7 +139,7 @@ function Alltrades() {
                         </tr>
                     </tbody>
                 </table>
-            </div>
+             </div>
         )
     };
 
@@ -146,7 +152,7 @@ function Alltrades() {
                 <tbody>
                     <tr>
                         <th>
-                            <p className={styles.headerMain1}>TLog</p>
+                            <p className={styles.headerMain1} onClick={toHome}>TLog</p>
                         </th>
                         <th>
                             <p id={styles.profile}>{username}</p>
@@ -156,8 +162,7 @@ function Alltrades() {
             </table>
 
             <p id={styles.updateTrades}>Update Trade</p>
-
-            <div id="card-container">
+            <div id={styles.container}>
                 {datas.length > 0 ? (
                     datas.map((data) => createCard(data)) // Map through each card data
                 ) : (
