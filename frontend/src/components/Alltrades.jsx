@@ -20,7 +20,8 @@ function Alltrades() {
             const response = await fetch('https://trades-log-mern.vercel.app/allentry', {
                 body: JSON.stringify({ username: username }),
                 headers: { 'Content-Type': 'application/json' },
-                method: 'POST'
+                method: 'POST',
+                credentials: 'include'
             });
             const responseData = await response.json();
             setData(responseData.reverse())
