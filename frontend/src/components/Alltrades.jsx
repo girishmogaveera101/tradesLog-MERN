@@ -17,7 +17,7 @@ function Alltrades() {
 
     useEffect(() => {
         const fetchData = async () => {
-            const response = await fetch('https://trades-log-mern.vercel.app/allentry', {
+            const response = await fetch('http://localhost:3001/allentry', {
                 body: JSON.stringify({ username: username }),
                 headers: { 'Content-Type': 'application/json' },
                 method: 'POST'
@@ -38,24 +38,22 @@ function Alltrades() {
                 <table id={styles.table2}>
                     <tbody>
                         <tr>
-                            <td colSpan={3}>
+                            <td colSpan={2}>
                                 <p id={styles.coin}>{coin}</p>
                             </td>
-                            <td rowSpan={2}>
+                            <td rowSpan={1}>
                                 <p id={styles.tradeID}>{tradeID}</p>
                             </td>
                         </tr>
                     </tbody>
                     <tbody>
                         <tr>
-                            <td colSpan={1}>
+                            <td>
                                 <p id={styles.amountL}>Amount</p>
                             </td>
                             <td>
                                 <p id={styles.amount}>{amount} Rs</p>
                             </td>
-                            {/* <td style={{width:'0%'}}>
-                            </td> */}
                         </tr>
                     </tbody>
                     <tbody>
@@ -130,7 +128,7 @@ function Alltrades() {
                     </tbody>
                     <tbody>
                         <tr>
-                            <td style={{ wordWrap: 'break-word'}}>
+                            <td style={{ wordWrap: 'break-word', width:"150px"}}>
                                 <p id={styles.commentL}>Comments</p>
                             </td>
                             <td colSpan="3">
