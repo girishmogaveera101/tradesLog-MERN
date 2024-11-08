@@ -94,6 +94,7 @@ function Home() {
                                 <tr>
                                     <th colSpan="2" >
                                         <p id={styles.dataEnter}>Enter the Trade Details</p>
+                                        <hr/>
                                     </th>
                                 </tr>
                             </tbody>
@@ -101,7 +102,6 @@ function Home() {
                                 <tr>
                                     <td>
                                         <p className={styles.data}>Trade ID</p>
-                                        <hr/>
                                     </td>
                                     <td>
                                         <input className={styles.dataInput} placeholder='Ex : 1023' type="number" name="tNo" value={tradeID} onChange={(e) => { setTradeID(e.target.value) }} required />
