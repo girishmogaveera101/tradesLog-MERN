@@ -104,7 +104,7 @@ function Home() {
                                         <p className={styles.data}>Trade ID</p>
                                     </td>
                                     <td>
-                                        <input minLength={60} className={styles.dataInput} placeholder='Ex : 1023' type="number" name="tNo" value={tradeID} onChange={(e) => { setTradeID(e.target.value) }} required />
+                                        <input minLength={3} className={styles.dataInput} placeholder='Ex : 1023' type="number" name="tNo" value={tradeID} onChange={(e) => { setTradeID(e.target.value) }} required />
                                     </td>
                                 </tr>
                             </tbody>
