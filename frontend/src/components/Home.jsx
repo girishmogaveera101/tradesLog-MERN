@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styles from '../css/home.module.css';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-
+import LivePrice from './LivePrice'
 
 
 function Home() {
@@ -73,14 +73,14 @@ function Home() {
                             <p id={styles.title1} className={styles.headermain1}>TLog</p>
                         </th>
                         <th>
-                            <p id={styles.profile}>{username}</p>
+                        <ion-icon id={styles.profile} name="menu"></ion-icon>
                         </th>
                     </tr>
                 </tbody>
             </table>
 
 
-
+            <LivePrice />
             <p id={styles.allTrades} onClick={toAllTrades}>See all trades </p>
 
 
@@ -101,6 +101,7 @@ function Home() {
                                 <tr>
                                     <td>
                                         <p className={styles.data}>Trade ID</p>
+                                        <hr/>
                                     </td>
                                     <td>
                                         <input className={styles.dataInput} placeholder='Ex : 1023' type="number" name="tNo" value={tradeID} onChange={(e) => { setTradeID(e.target.value) }} required />

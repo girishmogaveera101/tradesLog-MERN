@@ -1,0 +1,69 @@
+#title{
+    color: rgb(160, 252, 255);
+    font-size: 20px;
+}
+#coin{
+    color: rgb(0, 0, 0);
+    font-size: 18px;
+    margin: 10px 3px;
+    /* outline: auto; */
+    font-family: monospace;
+    font-weight: bold;
+}
+@media (max-width : 700px){
+    #coin{
+        font-size: 13px;
+        color: white;
+    }
+}
+#price{
+    color: rgb(59, 172, 25);
+    font-size: 24px;
+    /* outline: auto; */
+    font-family: monospace;
+    margin: 0px 3px 10px 3px;
+    font-weight: bold;
+}
+@media (max-width : 700px){
+    #price{
+        font-size: 13px;
+    }
+}
+#btn{
+    background-color: black;
+    color: aqua;
+    border: 1px solid aqua;
+    height: 30px;
+    margin: 30px 30px;
+    width: 100px;
+}
+
+#container{
+    display: flex;
+    margin-top: 120px;
+    width: 94%;
+    margin-left: 3%;
+    border-radius: 15px;
+    flex-wrap: wrap;
+    background-color: tr;
+    flex-direction: row;
+    justify-content: space-around;
+    border: 3px solid black;
+}
+
+@media(max-width:700px){
+    #container{
+        background-color: black;
+        border: 1px solid rgb(0, 174, 255);
+
+    }
+}
+#c1{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-items: center;
+    border: 0px solid white;
+    width: 20%;
+}

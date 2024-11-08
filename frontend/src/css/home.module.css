@@ -1,7 +1,9 @@
-body{background-color: rgb(17, 17, 17);
+body{background-color: white;
+    background-image: linear-gradient(white,white);
     margin: 0 0;
     padding: 0 0;
 }
+
 
 a{
     text-decoration: none;
@@ -23,7 +25,7 @@ a{
 .flexitem1{
     border: 0px solid white;
     width: 500px;
-    padding: 0% 10%;
+    padding: 0% 5%;
 }
 
 @media (max-width : 700px){
@@ -50,13 +52,13 @@ a{
 
 
 #table1{
-    background-color: rgb(10, 10, 10);
+    background-color: rgb(0, 0, 0);
     height: 100px;
     width: 100%;
     top: 0%;
     border: 0px solid white;
     position: fixed;
-    border-bottom: 1px solid rgb(150, 150, 150);
+    border-bottom: 1px solid rgb(0, 174, 255);
 }
 
 #title1{
@@ -64,7 +66,7 @@ a{
     font-size: 25px; 
     color: transparent;
     background-clip: text;
-    background:  -webkit-linear-gradient(40deg, #000000, #ececec);
+    background:  -webkit-linear-gradient(40deg, rgb(0, 174, 255), rgb(234, 0, 255));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-top: 0px;
@@ -80,13 +82,13 @@ a{
 }
 
 #profile{
-    color: rgb(173, 173, 173);
+    color: rgb(0, 174, 255);
     float: right;
     font-family: monospace;
     font-weight: lighter;
     letter-spacing: 2px;
-    margin-right: 50px;
-    font-size: 20px;
+    margin-right: 10%;
+    font-size: 40px;
     border: 0px solid white;
     /* width: 40%; */
 }
@@ -95,48 +97,64 @@ a{
 
 
 #allTrades{
-    margin-top: 130px;
+    margin-top: 20px;
+    font-weight: bold;
     font-size: 20px;
-    font-family: monospace;
+    width: fit-content;
+    /* outline: auto; */
+    font-family: Arial, Helvetica, sans-serif;
     margin-left: 10%;
-    color: rgb(151, 151, 151);
+    color: black;
 }
 
 #table2{
-    background: linear-gradient(to bottom left, rgb(43, 43, 43), rgb(19, 19, 19));
+    background: linear-gradient(to bottom left, rgb(0, 51, 75), rgb(0, 120, 175));
     border-radius: 5px;
+    border: 0px solid rgb(0, 174, 255);
     /* padding: 5% 5%; */
     /* margin-bottom: 30px; */
-    color: rgb(192, 192, 192);
+    /* color: rgb(192, 192, 192); */
     width: 100%;
 }
 #dataEnter{
     text-align: center;
-    color: rgb(110, 110, 110);
-    font-size: 23px;
-    font-family: monospace;
+    color: rgb(255, 255, 255);
+    font-size: 25px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
 }
 .data{
-    font-family: monospace;
-    color: rgb(129, 129, 129);
-    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+    text-align: right;
+    margin: 13px 0px;
+    font-weight: bold;
 }
 .dataInput{
-    background-color: rgb(38, 38, 38);
-    border: 1px solid rgb(84, 84, 84);
-    font-size: 15px;
-    color: rgb(151, 151, 151);
+    background-color: transparent;
+    text-align: center;
+    border: 1px solid rgb(190, 231, 255);
+    font-size: 16px;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    padding-left: 0px;
     height: 25px;
 }
 
 #sel1{
-    background-color: rgb(38, 38, 38);
-    color: rgb(148, 148, 148);
+    background-color: transparent;
+    color: rgb(255, 255, 255);
+    border: 1px solid hsl(198, 100%, 90%);
     height: 25px;
     font-family: monospace;
 }
+#sel1 option{
+    background-color: rgb(0, 0, 0);
+    color: white;
+}
 #makeEntry{
-    background-color: rgb(39, 39, 39);
+    background-color: transparent;
     height: 40px;
     margin-top: 20px;
     width: 150px;
@@ -144,12 +162,13 @@ a{
     font-family: monospace;
     transition-duration: 0.2s;
     font-size: 20px;
-    border: 1px solid rgb(124, 124, 124);
-    color: rgb(150, 150, 150);
+    border: 1px solid rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
 }
 #makeEntry:hover{
-    background-color: rgb(163, 163, 163);
-    color: rgb(41, 41, 41);
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    border: none;
 }
 
 #message{
@@ -159,11 +178,8 @@ a{
 }
 
 
-
-
-
 #footer{
-    /* background: linear-gradient(to bottom left, rgb(19, 19, 19), rgb(46, 46, 46)); */
+    background: linear-gradient(to bottom left, black, black);
     width:800px;
 }
 
@@ -187,6 +203,8 @@ a{
 @media(max-width:700px){
     #footerText{
         font-size: 15px;
+        color: rgb(154, 150, 185);
+
     }
 }
 #footerLogo{
@@ -203,10 +221,15 @@ a{
 @media(max-width:700px){
     #footerLogo{
         font-size: 70px;
+    color: transparent;
+    background-clip: text;
+    background:  -webkit-linear-gradient(40deg, rgb(0, 89, 255), rgb(0, 255, 42));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     }
 }
 #copyrightText{
-    color: rgb(102, 102, 102);
+    color: rgb(145, 145, 145);
     font-weight: lighter;
     font-size: 20px;
     margin-bottom: 10px;
@@ -216,5 +239,6 @@ a{
 @media(max-width:700px){
     #copyrightText{
         font-size: 15px;
+        color: rgb(121, 112, 126);
     }
 }

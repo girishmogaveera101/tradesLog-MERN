@@ -42,12 +42,9 @@ server.use(bodyParser.json());
 
 
 
-// for local machine
+// local machine
 // mongo.connect('mongodb://127.0.0.1:27017/MyDatabase')
-
-//mongo atlas connection string
-// mongo.connect('mongodb+srv://girishmogaveera101:tradesLog@tradeslog.noaz7.mongodb.net/Mydatabase?retryWrites=true&w=majority')
-   
+ 
 mongo.connect(process.env.MONGO_URI)
 .then(() => {console.log("db connected..")})
     .catch(err=> console.log(err));
@@ -168,7 +165,7 @@ server.post('/allentry', async(req,res) => {
     const {username} = req.body;
     const userCollect = mongoose.connection.collection(String(username));
     const allEntry = await userCollect.find({}).toArray();
-    console.log(allEntry)
+    // console.log(allEntry)
     if(allEntry){
         // res.send({msg : "ok"});
         return res.send(allEntry).status(200);

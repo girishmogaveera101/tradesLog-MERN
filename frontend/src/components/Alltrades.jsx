@@ -154,7 +154,7 @@ function Alltrades() {
                             <p className={styles.headerMain1} onClick={toHome}>TLog</p>
                         </th>
                         <th>
-                            <p id={styles.profile}>{username}</p>
+                        <ion-icon id={styles.profile} name="person"></ion-icon>
                         </th>
                     </tr>
                 </tbody>
