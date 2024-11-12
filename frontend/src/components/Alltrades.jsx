@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styles from '../css/alltrades.module.css';
 import { useLocation, useNavigate } from 'react-router-dom';
+import Loading from './Loading'
 
 function Alltrades() {
 
@@ -164,9 +165,9 @@ function Alltrades() {
             <div id={styles.container}>
                 {datas.length > 0 ? (
                     datas.map((data) => createCard(data)) // Map through each card data
-                ) : (
-                    <p style={{color:'black'}}>Loading...</p>
-                )}
+                ) : 
+                    <Loading/>
+                }
             </div>
         </>
     )
