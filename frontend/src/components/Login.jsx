@@ -1,11 +1,11 @@
 import React,{useState} from 'react';
 import '../css/login.css';
+import Loading from './Loading';
 import {Link, useNavigate} from 'react-router-dom';
 
 
 function Login() {
     
-
     const navigate = useNavigate();
     // msg object 
     const[msg1, setmsg1]= useState('');
@@ -15,9 +15,16 @@ function Login() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
+    // loading animation
+    const [isLoading, setIsLoading] = useState(false);
+
     // fun() called on sigining in
     const login = async (e) => {
         e.preventDefault();
+
+        // animation
+        setIsLoading(true);
+
         const loginData = {
             username:username,
             password:password
@@ -34,15 +41,18 @@ function Login() {
             console.log(responseData);
         }
         if(response.status==404){
+            setIsLoading(false);
             setmsg1("Account not found!");
         }
         if(response.status==401){
+            setIsLoading(false);
             setmsg1("Incorrect password!");
         }
     };
 
     return (
         <>
+        {isLoading ? <Loading/> : ""}
           <div className="flexbox">
                 <p id="footerLogo">TLog</p>
 

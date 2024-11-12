@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styles from '../css/home.module.css';
+import Loading from './Loading'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import LivePrice from './LivePrice'
 
@@ -11,6 +12,8 @@ function Home() {
     const navigate = useNavigate();
     const { username, password } = location.state || {};
 
+    // loading animation
+    const [isLoading, setIsLoading] = useState(false);
 
 
     // usestate variables
@@ -29,7 +32,11 @@ function Home() {
     // function to handle on submitting new entry
 
     const newTradeEntry = async (e) => {
-        e.preventDefault()
+        e.preventDefault();
+
+        // start loading animation
+        setIsLoading(true);
+
         const newEntry = {
             username: username,
             tradeID: tradeID,
@@ -37,11 +44,11 @@ function Home() {
             amount: amount,
             strategy: strategy,
             leverage: leverage,
-            entryPrice : entryPrice,
-            entryOn : entryDate,
-            closePrice : closePrice,
-            closeOn : closeDate,
-            pnl : pnl,
+            entryPrice: entryPrice,
+            entryOn: entryDate,
+            closePrice: closePrice,
+            closeOn: closeDate,
+            pnl: pnl,
             comment: comment
         };
         console.log(tradeID)
@@ -52,7 +59,12 @@ function Home() {
         });
         const responseData = await response.json();
         if (response.status == 200) {
+            setIsLoading(false)
             console.log("sent successfully")
+        }
+        if (response.status == 400) {
+            setIsLoading(false)
+            console.log("Trade ID alreay exists")
         }
         console.log(responseData);
     }
@@ -66,6 +78,8 @@ function Home() {
     return (
 
         <>
+            {username ? console.log("session exists") : <Loading />}
+            {isLoading ? <Loading /> : ''}
             <table id={styles.table1}>
                 <tbody>
                     <tr>
@@ -73,7 +87,7 @@ function Home() {
                             <p id={styles.title1} className={styles.headermain1}>TLog</p>
                         </th>
                         <th>
-                        <ion-icon id={styles.profile} name="menu"></ion-icon>
+                            <ion-icon id={styles.profile} name="menu"></ion-icon>
                         </th>
                     </tr>
                 </tbody>
@@ -94,7 +108,7 @@ function Home() {
                                 <tr>
                                     <th colSpan="2" >
                                         <p id={styles.dataEnter}>Enter the Trade Details</p>
-                                        <hr/>
+                                        <hr />
                                     </th>
                                 </tr>
                             </tbody>
@@ -130,7 +144,7 @@ function Home() {
                                     <p className={styles.data}>Amount</p>
                                 </td>
                                 <td>
-                                    <input className={styles.dataInput} placeholder='Ex : 55000  (INR)' type="number" value={amount} onChange={(e) => { setAmount(e.target.value) }} required/>
+                                    <input className={styles.dataInput} placeholder='Ex : 55000  (INR)' type="number" value={amount} onChange={(e) => { setAmount(e.target.value) }} required />
                                 </td>
                             </tr>
                             <tr>
@@ -152,7 +166,7 @@ function Home() {
                                     <p className={styles.data}>Leverage</p>
                                 </td>
                                 <td>
-                                    <input className={styles.dataInput} placeholder='Ex : 5X' type="number" value={leverage} onChange={(e) => setLeverage(e.target.value)} required/>
+                                    <input className={styles.dataInput} placeholder='Ex : 5X' type="number" value={leverage} onChange={(e) => setLeverage(e.target.value)} required />
                                 </td>
                             </tr>
                             <tr>
@@ -160,7 +174,7 @@ function Home() {
                                     <p className={styles.data}>Entry price</p>
                                 </td>
                                 <td>
-                                    <input className={styles.dataInput} placeholder='Ex : 65800  (INR)' type="number" value={entryPrice} onChange={(e) => setEntryPrice(e.target.value)} required/>
+                                    <input className={styles.dataInput} placeholder='Ex : 65800  (INR)' type="number" value={entryPrice} onChange={(e) => setEntryPrice(e.target.value)} required />
                                 </td>
                             </tr>
                             <tr>
@@ -168,7 +182,7 @@ function Home() {
                                     <p className={styles.data}>Entry on</p>
                                 </td>
                                 <td>
-                                    <input className={styles.dataInput} type="date" value={entryDate} onChange={(e) => setEntryDate(e.target.value)} required/>
+                                    <input className={styles.dataInput} type="date" value={entryDate} onChange={(e) => setEntryDate(e.target.value)} required />
                                 </td>
                             </tr>
                             <tr>
@@ -202,7 +216,7 @@ function Home() {
                                         <p className={styles.data}>Comment</p>
                                     </td>
                                     <td>
-                                        <input maxLength={60} className={styles.dataInput} placeholder='Ex : Hit TP ' type="text" value={comment} onChange={(e) => setComment(e.target.value)}  />
+                                        <input maxLength={60} className={styles.dataInput} placeholder='Ex : Hit TP ' type="text" value={comment} onChange={(e) => setComment(e.target.value)} />
                                     </td>
                                 </tr>
                             </tbody>

@@ -1,7 +1,7 @@
-import React,{useState} from 'react';
+import React, { useState } from 'react';
 // import '../css/login.css';
-
-import {Link,useNavigate} from 'react-router-dom';
+import Loading from './Loading'
+import { Link, useNavigate } from 'react-router-dom';
 
 
 
@@ -15,28 +15,37 @@ function Signin() {
     const [phone, setPhone] = useState('');
     const [password, setPassword] = useState('');
 
+    // loading animation
+    const [isLoading, setIsLoading] = useState(false);
+
     // fun() called on sigining in
     const signin = async (e) => {
         e.preventDefault();
+
+        // animation
+        setIsLoading(true);
+
         const signinData = {
-            username:username,
-            email:email,
-            phone:phone,
-            password:password
+            username: username,
+            email: email,
+            phone: phone,
+            password: password
         };
-        const response = await fetch('https://trades-log-mern.vercel.app/signin',{
-            body:JSON.stringify(signinData),
-            method:'POST',
-            headers:{'Content-Type':'application/json'}
+        const response = await fetch('https://trades-log-mern.vercel.app/signin', {
+            body: JSON.stringify(signinData),
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' }
         });
-        if(response.status==200){
-            
-            navigate('/home', {state : {username,password}});
+        if (response.status == 200) {
+
+            navigate('/home', { state: { username, password } });
         }
-        if(response.status==400){
+        if (response.status == 400) {
+            setIsLoading(false);
             setmsg1("Account already exists!")
         }
-        if(response.status==404){
+        if (response.status == 404) {
+            setIsLoading(false);
             setmsg1("Error occurred!")
         }
         const responseData = await response.json();
@@ -45,77 +54,78 @@ function Signin() {
 
     return (
         <>
-          <div className="flexbox">
-                  {/* logo */}
-            <div className="flex-item">
-                <p id="footerLogo">TLog</p>
-            </div>
+            {isLoading ? <Loading /> : ""}
+            <div className="flexbox">
+                {/* logo */}
+                <div className="flex-item">
+                    <p id="footerLogo">TLog</p>
+                </div>
 
-            <div className="flex-item">
-                <form onSubmit={signin}>
-                <table id="loginCard">
-                <thead>
-                    <tr>
-                        <td colSpan="2" id='td1'> 
-                            <p id="dataEnter">Create new account</p><hr/>
-                        </td>
-                    </tr>
-                    </thead>
-                    <thead>
-                    <tr>
-                        <td>
-                            <p className="data">username</p>
-                        </td>
-                        <td>
-                            <input className="dataInput" type="text" value={username} onChange={(e) => {setUsername(e.target.value)}} required/>
-                        </td>
-                    </tr>
-                    </thead>
-                    <thead>
-                    <tr>
-                        <td>
-                            <p className="data">email</p>
-                        </td>
-                        <td>
-                            <input className="dataInput" type="text" value={email} onChange={(e) => {setEmail(e.target.value)}} required/>
-                        </td>
-                    </tr>
-                    </thead>
-                    <thead>
-                    <tr>
-                        <td>
-                            <p className="data">phone</p>
-                        </td>
-                        <td>
-                            <input className="dataInput" type="number" value={phone} onChange={(e) => {setPhone(e.target.value)}} required/>
-                        </td>
-                    </tr>
-                    </thead>
-                    <thead>
-                    <tr>
-                        <td>
-                            <p className="data">password</p>
-                        </td>
-                        <td>
-                            <input className="dataInput" type="password" value={password} onChange={(e) => {setPassword(e.target.value)}} required/>
-                        </td>
-                    </tr>
-                    </thead>
-                    <thead>
-                    <tr>
-                        <td colSpan="2" id='td2'>
-                            <input type="submit" id="makeEntry" value="signin"/>
-                        </td>
-                    </tr>
-                    </thead>
-                </table>
-                </form>
-                <Link to="/login">
-                    <p id='oldUser'>Already have an Acc?</p>
-                </Link>
-                <p id='msg1'>{msg1}</p>
+                <div className="flex-item">
+                    <form onSubmit={signin}>
+                        <table id="loginCard">
+                            <thead>
+                                <tr>
+                                    <td colSpan="2" id='td1'>
+                                        <p id="dataEnter">Create new account</p><hr />
+                                    </td>
+                                </tr>
+                            </thead>
+                            <thead>
+                                <tr>
+                                    <td>
+                                        <p className="data">username</p>
+                                    </td>
+                                    <td>
+                                        <input className="dataInput" type="text" value={username} onChange={(e) => { setUsername(e.target.value) }} required />
+                                    </td>
+                                </tr>
+                            </thead>
+                            <thead>
+                                <tr>
+                                    <td>
+                                        <p className="data">email</p>
+                                    </td>
+                                    <td>
+                                        <input className="dataInput" type="text" value={email} onChange={(e) => { setEmail(e.target.value) }} required />
+                                    </td>
+                                </tr>
+                            </thead>
+                            <thead>
+                                <tr>
+                                    <td>
+                                        <p className="data">phone</p>
+                                    </td>
+                                    <td>
+                                        <input className="dataInput" type="number" value={phone} onChange={(e) => { setPhone(e.target.value) }} required />
+                                    </td>
+                                </tr>
+                            </thead>
+                            <thead>
+                                <tr>
+                                    <td>
+                                        <p className="data">password</p>
+                                    </td>
+                                    <td>
+                                        <input className="dataInput" type="password" value={password} onChange={(e) => { setPassword(e.target.value) }} required />
+                                    </td>
+                                </tr>
+                            </thead>
+                            <thead>
+                                <tr>
+                                    <td colSpan="2" id='td2'>
+                                        <input type="submit" id="makeEntry" value="signin" />
+                                    </td>
+                                </tr>
+                            </thead>
+                        </table>
+                    </form>
+                    <Link to="/login">
+                        <p id='oldUser'>Already have an Acc?</p>
+                    </Link>
+                    <p id='msg1'>{msg1}</p>
+                </div>
             </div>
-          </div>
         </>
     );
 }

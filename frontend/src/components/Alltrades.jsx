@@ -154,7 +154,7 @@ function Alltrades() {
                             <p className={styles.headerMain1} onClick={toHome}>TLog</p>
                         </th>
                         <th>
-                        <ion-icon id={styles.profile} name="person"></ion-icon>
+                        <ion-icon id={styles.profile} name="menu"></ion-icon>
                         </th>
                     </tr>
                 </tbody>
@@ -165,7 +165,7 @@ function Alltrades() {
                 {datas.length > 0 ? (
                     datas.map((data) => createCard(data)) // Map through each card data
                 ) : (
-                    <p>Loading...</p>
+                    <p style={{color:'black'}}>Loading...</p>
                 )}
             </div>
         </>
