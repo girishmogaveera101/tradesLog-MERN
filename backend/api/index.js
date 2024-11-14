@@ -91,7 +91,10 @@ server.post('/signin', async(req,res) => {
 
 
 
-
+server.get('/newsapi', async(res,req)=> {
+    const response = fetch(`https://newsapi.org/v2/everything?q=crypto&apiKey=${process.env.NEWS_API}`)
+    res.send((await response).status(200));
+})
 
 
 
