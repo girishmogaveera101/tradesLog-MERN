@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import styles from '../css/home.module.css';
 import Loading from './Loading'
+import News from './News';
+import Footer from './Footer'
+import Navbar from './Navbar'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import LivePrice from './LivePrice'
 
@@ -80,20 +83,12 @@ function Home() {
         <>
             {username ? console.log("session exists") : <Loading />}
             {isLoading ? <Loading /> : ''}
-            <table id={styles.table1}>
-                <tbody>
-                    <tr>
-                        <th>
-                            <p id={styles.title1} className={styles.headermain1}>TLog</p>
-                        </th>
-                        <th>
-                            <ion-icon id={styles.profile} name="menu"></ion-icon>
-                        </th>
-                    </tr>
-                </tbody>
-            </table>
 
 
+            {/* Navigation Bar component*/}
+            <Navbar/>
+
+            {/* live price compolnent */}
             <LivePrice />
             <p id={styles.allTrades} onClick={toAllTrades}>See all trades </p>
 
@@ -233,66 +228,12 @@ function Home() {
 
 
                 <div className={styles.flexitem2}>
-                    <table id={styles.footer}>
-                        <tbody>
-                            <tr>
-                                <th>
-                                    <p id={styles.footerLogo}>TLog</p>
-                                </th>
-                            </tr>
-                        </tbody>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <a target="_blank" href="https://www.instagram.com/girizhh/"><p id={styles.footerText}>INSTAGRAM</p></a>
-                                </td>
-                            </tr>
-                        </tbody>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <p id={styles.footerText}>TWITTER</p>
-                                </td>
-                            </tr>
-                        </tbody>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <p id={styles.footerText}>GITHUB</p>
-                                </td>
-                            </tr>
-                        </tbody>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <p id={styles.footerText}>FACEBOOK</p>
-                                </td>
-                            </tr>
-                        </tbody>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <p id={styles.footerText}>LINKEDIN</p>
-                                </td>
-                            </tr>
-                        </tbody>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <p id={styles.footerText}>CONTACT</p>
-                                </td>
-                            </tr>
-                        </tbody>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <p id={styles.copyrightText}>Copyright 2023-2024 by Refsnes Data. Not All Rights Reserved.</p>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    {/* news component */}
+                    <News />
                 </div>
             </div>
+                        {/* footer component */}
+                        <Footer />
         </>
     )
 }

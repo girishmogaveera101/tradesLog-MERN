@@ -3,7 +3,7 @@
     font-size: 20px;
 }
 #coin{
-    color: rgb(0, 0, 0);
+    color: rgb(252, 252, 252);
     font-size: 18px;
     margin: 10px 3px;
     /* outline: auto; */
@@ -45,7 +45,7 @@
     margin-left: 3%;
     border-radius: 15px;
     flex-wrap: wrap;
-    background-color: tr;
+    background-color: rgb(7, 0, 48);
     flex-direction: row;
     justify-content: space-around;
     border: 3px solid black;
@@ -53,7 +53,7 @@
 
 @media(max-width:700px){
     #container{
-        background-color: black;
+        background-color: rgb(7, 0, 48);
         border: 1px solid rgb(0, 174, 255);
 
     }
