@@ -1,13 +1,21 @@
 import React, { useState } from 'react';
 import styles from '../css/navbar.module.css'
+import {useNavigate } from 'react-router-dom';
+
 
 function Navbar() {
 
     const [isMenu, setIsMenu] = useState(false);
 
+    const navigate = useNavigate();
+
     const viewMenu = () => {
         console.log("called")
         setIsMenu(!isMenu);
+    }
+
+    const logout=()=>{
+        navigate('/');
     }
     return (
         <div>
@@ -31,7 +39,7 @@ function Navbar() {
                     <div id={styles.menu}>
                         <p id={styles.menuOp}>Profile</p>
                         <p id={styles.menuOp}>News</p>
-                        <ion-icon id={styles.logout} name="power"></ion-icon>
+                        <p onClick={logout}><ion-icon id={styles.logout} name="power"></ion-icon></p>
                     </div>
                 ) : ("")}
 

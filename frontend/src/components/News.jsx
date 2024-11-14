@@ -8,24 +8,22 @@ function News() {
 
 
 
-  // images usestate varaibles
+  // news usestate varaibles
   const [newsData, setNews] = useState('')
 
   useEffect(() => {
 
     const apicall = async () => {
 
-      try{
+      try {
 
-        // const response = await fetch('https://trades-log-mern.vercel.app/newsapi');
-
-              // news api call 
-      const response = await fetch('/api/news');
-      const resData = await response.json();
-      console.log(resData)
-      setNews(resData["articles"] || []);
+        // news api call 
+        const response = await fetch('/api/news');
+        const resData = await response.json();
+        console.log(resData)
+        setNews(resData["articles"] || []);
       }
-      catch(err){
+      catch (err) {
         console.error("Failed to fetch news data:", err);
       }
     }
@@ -55,7 +53,7 @@ function News() {
 
       {newsData && newsData.length > 0 ? (
         newsData.map((news) => createCard(news))
-      ) :( <Loading/>)}
+      ) : (<Loading />)}
     </div>
 
   )
