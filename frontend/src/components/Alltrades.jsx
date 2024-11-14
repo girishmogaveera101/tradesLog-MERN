@@ -3,6 +3,7 @@ import styles from '../css/alltrades.module.css';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Loading from './Loading'
 
+
 function Alltrades() {
 
     const navigate = useNavigate();

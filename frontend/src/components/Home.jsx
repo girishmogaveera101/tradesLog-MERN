@@ -86,7 +86,7 @@ function Home() {
 
 
             {/* Navigation Bar component*/}
-            <Navbar/>
+            <Navbar />
 
             {/* live price compolnent */}
             <LivePrice />
@@ -232,8 +232,8 @@ function Home() {
                     <News />
                 </div>
             </div>
-                        {/* footer component */}
-                        <Footer />
+            {/* footer component */}
+            <Footer />
         </>
     )
 }
