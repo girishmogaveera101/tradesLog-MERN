@@ -17,10 +17,10 @@ function News() {
 
       try{
 
-        const response = await fetch('https://trades-log-mern.vercel.app/newsapi');
+        // const response = await fetch('https://trades-log-mern.vercel.app/newsapi');
 
               // news api call 
-      // const response = await fetch('/api/news');
+      const response = await fetch('/api/news');
       const resData = await response.json();
       console.log(resData)
       setNews(resData["articles"] || []);
