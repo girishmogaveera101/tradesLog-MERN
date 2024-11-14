@@ -37,7 +37,7 @@ function News() {
 
   const createCard = (data) => {
     console.log("NEWS : ", data)
-    return (<a target='_blank' rel="noopener noreferrer" key={data.title}>
+    return (<a href={data['url']} target='_blank' rel="noopener noreferrer" key={data.title}>
       <div id={styles.container}>
         <div id={styles.box1}>
           <img id={styles.image} src={data["urlToImage"]} alt="News thumbnail" height={100}></img>

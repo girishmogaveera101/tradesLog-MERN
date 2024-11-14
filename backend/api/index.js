@@ -18,11 +18,11 @@ const server = express();
 
 
 const corsOptions = {
-    origin: 'https://tradeslog.vercel.app', // Allow requests from your frontend
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', // Allowable methods
-    credentials: true, // Allow credentials like cookies if needed
+    origin: 'https://tradeslog.vercel.app', 
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE', 
+    credentials: true, 
     allowedHeaders: ['Content-Type', 'Authorization'],
-    optionsSuccessStatus: 200 // Some legacy browsers choke on 204 status
+    optionsSuccessStatus: 200
   };
   
 server.use(cors(corsOptions));
