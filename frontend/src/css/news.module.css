@@ -5,6 +5,7 @@
     background-color: rgb(7, 0, 48);
     border: 0px solid red;
     flex-wrap: wrap;
+    /* margin-right: 25%; */
     border-radius: 15px;
     overflow: scroll;
     height: 100%;
@@ -26,13 +27,14 @@
 }
 
 
+
 #container {
     display: flex;
     border: 0px solid red;
-    width: 90%;
+    width: 80%;
     margin-top: 30px;
     border-radius: 15px;
-    margin-left: 5%;
+    margin-right: 15%;
     background-color: black;
     flex-direction: column;
 }

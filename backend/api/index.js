@@ -44,7 +44,6 @@ server.use(bodyParser.json());
 
 // local machine
 // mongo.connect('mongodb://127.0.0.1:27017/MyDatabase')
- 
 mongo.connect(process.env.MONGO_URI)
 .then(() => {console.log("db connected..")})
     .catch(err=> console.log(err));
@@ -180,6 +179,33 @@ server.post('/allentry', async(req,res) => {
 
 
 
+
+server.post('/updatetrade', async(req,res)=> {
+    const {username, tradeID, closePrice, closeOn, pnl, comment} = req.body;
+    if(!username){
+        res.send({msg:"error"}).status(400);
+    }
+    const userCollection = mongoose.connection.collection(String(username));
+    const tradeData = await userCollection.findOneAndUpdate({tradeID : tradeID},[{ $set: { closePrice: closePrice,closeOn:closeOn,pnl:pnl,comment:comment } }],{new:true});
+    console.log(tradeData);
+    if(tradeData.length==0){
+        res.send({msg:"data not found"}).status(404);
+    }
+    res.send({msg:"updated sucessfully"}).status(200);
+
+
+
+})
+
+
+
+
+
+
+
+
+
+
 server.listen(port,() => {
-    console.log("Server listening...")
+    console.log("Server listening on port : ",port)
 });

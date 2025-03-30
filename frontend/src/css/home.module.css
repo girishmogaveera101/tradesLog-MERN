@@ -10,19 +10,26 @@ a{
 
 .flexbox{
     display: flex;
-    margin: 0;
+    /* margin: 0; */
+    /* padding: 0 10%; */
     flex-direction: row;
-    border: 0px solid rgb(0, 0, 0);
+    /* border: 5px solid rgb(214, 0, 0); */
     height: 70%;
     width: 100%;
+    /* padding-right: 10%; */
     flex-wrap: wrap;
-    align-items: space-evenly;
-    justify-content: space-between;
+    /* align-items: space-evenly; */
+    justify-content: space-evenly;
+}
+@media(max-width:700px){
+    .flexbox{
+        width: 100%;
+    }
 }
 
 .flexitem1{
-    border: 0px solid white;
-    width: 500px;
+    /* border: 2px solid white; */
+    width: 25%;
     padding: 0% 5%;
 }
 
@@ -34,7 +41,7 @@ a{
 }
 
 .flexitem2{
-    border: 0px solid white;
+    /* border: 2px solid green; */
     /* background: linear-gradient(to bottom left, rgb(46, 46, 46), rgb(17, 17, 17)); */
     margin: 0 0%;
     height: 750px;

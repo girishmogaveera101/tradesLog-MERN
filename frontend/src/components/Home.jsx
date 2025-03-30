@@ -55,6 +55,7 @@ function Home() {
             comment: comment
         };
         console.log(tradeID)
+        // const response = await fetch('http://localhost:3000/entry', {
         const response = await fetch('https://trades-log-mern.vercel.app/entry', {
             body: JSON.stringify(newEntry),
             headers: { 'Content-Type': 'application/json' },
@@ -225,6 +226,7 @@ function Home() {
                         </table>
                     </form>
                 </div>
+
 
 
                 <div className={styles.flexitem2}>
