@@ -19,8 +19,9 @@ function News() {
 
         // news api call 
         const response = await fetch('/api/news');
+        // const response = await fetch(`https://newsapi.org/v2/everything?q=crypto&apiKey=`);
         const resData = await response.json();
-        console.log(resData)
+        // console.log(resData)
         setNews(resData["articles"] || []);
       }
       catch (err) {
@@ -34,7 +35,7 @@ function News() {
 
 
   const createCard = (data) => {
-    console.log("NEWS : ", data)
+    // console.log("NEWS : ", data)
     return (<a href={data['url']} target='_blank' rel="noopener noreferrer" key={data.title}>
       <div id={styles.container}>
         <div id={styles.box1}>

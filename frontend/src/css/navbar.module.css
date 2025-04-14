@@ -102,3 +102,35 @@
         font-size: 20px;
     }
 }
+
+
+#notifBar {
+    background-color: rgb(255, 255, 255);
+    width: 60%;
+    border-radius: 10px;
+    /* border: 1px solid rgb(48, 48, 48); */
+    box-shadow: 0px 0px 25px rgb(63, 63, 63);
+    margin-left: 20%;
+    border: 5px solid rgb(53, 198, 255);
+    height: 140px;
+    position: fixed;
+    display: flex;
+    top: 20%;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width : 700px) {
+    #notifBar {
+        top: 40%;
+        width: 90%;
+        margin-left: 5%;
+    }
+}
+
+#notif {
+    font-size: 25px;
+    color: rgb(0, 177, 231);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+}

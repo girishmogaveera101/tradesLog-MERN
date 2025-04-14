@@ -76,7 +76,7 @@ function Test() {
         else{
           setEthColor('rgb(59, 172, 25)')
         }
-        console.log("ETH : ",eth.price);
+        // console.log("ETH : ",eth.price);
         setEthC(eth.symbol)
         setEthP(Number(eth.price));
       }
@@ -87,7 +87,7 @@ function Test() {
         else{
           setDogeColor('rgb(59, 172, 25)')
         }
-        console.log("DOGE : ",doge.price);
+        // console.log("DOGE : ",doge.price);
         setDogeC(doge.symbol)
         setDogeP(Number(doge.price));
       }
@@ -98,7 +98,7 @@ function Test() {
         else{
           setWldColor('rgb(59, 172, 25)')
         }
-        console.log("WLD : ",wld.price);
+        // console.log("WLD : ",wld.price);
         setWldC(wld.symbol)
         setWldP(Number(wld.price));
       }
@@ -109,7 +109,7 @@ function Test() {
         else{
           setSolColor('rgb(59, 172, 25)')
         }
-        console.log("SOL : ",sol.price);
+        // console.log("SOL : ",sol.price);
         setSolC(sol.symbol)
         setSolP(Number(sol.price));
       }

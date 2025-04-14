@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-// import '../css/login.css';
+import style from '../css/login.module.css';
 import Loading from './Loading'
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -31,6 +31,7 @@ function Signin() {
             phone: phone,
             password: password
         };
+        // const response = await fetch('http://localhost:3000/signin',{
         const response = await fetch('https://trades-log-mern.vercel.app/signin', {
             body: JSON.stringify(signinData),
             method: 'POST',
@@ -55,73 +56,73 @@ function Signin() {
     return (
         <>
             {isLoading ? <Loading /> : ""}
-            <div className="flexbox">
+            <div className={style.flexbox}>
                 {/* logo */}
-                <div className="flex-item">
-                    <p id="footerLogo">TLog</p>
+                <div className={style.flexItem}>
+                    <p id={style.footerLogo}>TLog</p>
                 </div>
 
-                <div className="flex-item">
+                <div className={style.flexItem}>
                     <form onSubmit={signin}>
-                        <table id="loginCard">
+                        <table id={style.loginCard}>
                             <thead>
                                 <tr>
-                                    <td colSpan="2" id='td1'>
-                                        <p id="dataEnter">Create new account</p><hr />
+                                    <td colSpan="2" id={style.td1}>
+                                        <p id={style.dataEnter}>Create new account</p><hr />
                                     </td>
                                 </tr>
                             </thead>
                             <thead>
                                 <tr>
                                     <td>
-                                        <p className="data">username</p>
+                                        <p className={style.data}>username</p>
                                     </td>
                                     <td>
-                                        <input className="dataInput" type="text" value={username} onChange={(e) => { setUsername(e.target.value) }} required />
+                                        <input className={style.dataInput} type="text" value={username} onChange={(e) => { setUsername(e.target.value) }} required />
                                     </td>
                                 </tr>
                             </thead>
                             <thead>
                                 <tr>
                                     <td>
-                                        <p className="data">email</p>
+                                        <p className={style.data}>email</p>
                                     </td>
                                     <td>
-                                        <input className="dataInput" type="text" value={email} onChange={(e) => { setEmail(e.target.value) }} required />
+                                        <input className={style.dataInput} type="text" value={email} onChange={(e) => { setEmail(e.target.value) }} required />
                                     </td>
                                 </tr>
                             </thead>
                             <thead>
                                 <tr>
                                     <td>
-                                        <p className="data">phone</p>
+                                        <p className={style.data}>phone</p>
                                     </td>
                                     <td>
-                                        <input className="dataInput" type="number" value={phone} onChange={(e) => { setPhone(e.target.value) }} required />
+                                        <input className={style.dataInput} type="number" value={phone} onChange={(e) => { setPhone(e.target.value) }} required />
                                     </td>
                                 </tr>
                             </thead>
                             <thead>
                                 <tr>
                                     <td>
-                                        <p className="data">password</p>
+                                        <p className={style.data}>password</p>
                                     </td>
                                     <td>
-                                        <input className="dataInput" type="password" value={password} onChange={(e) => { setPassword(e.target.value) }} required />
+                                        <input className={style.dataInput} type="password" value={password} onChange={(e) => { setPassword(e.target.value) }} required />
                                     </td>
                                 </tr>
                             </thead>
                             <thead>
                                 <tr>
-                                    <td colSpan="2" id='td2'>
-                                        <input type="submit" id="makeEntry" value="signin" />
+                                    <td colSpan="2" id={style.td2}>
+                                        <input type="submit" id={style.makeEntry} value="signin" />
                                     </td>
                                 </tr>
                             </thead>
                         </table>
                     </form>
                     <Link to="/login">
-                        <p id='oldUser'>Already have an Acc?</p>
+                        <p id={style.oldUser}>Already have an Acc?</p>
                     </Link>
                     <p id='msg1'>{msg1}</p>
                 </div>

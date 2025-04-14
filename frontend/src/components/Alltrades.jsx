@@ -60,8 +60,8 @@ function Alltrades() {
     // fetch all trade data
     useEffect(() => {
         const fetchData = async () => {
-            // const response = await fetch('http://localhost:3000/allentry', {
-            const response = await fetch('https://trades-log-mern.vercel.app/allentry', {
+            const response = await fetch('http://localhost:3000/allentry', {
+            // const response = await fetch('https://trades-log-mern.vercel.app/allentry', {
                 body: JSON.stringify({ username: username }),
                 headers: { 'Content-Type': 'application/json' },
                 method: 'POST',

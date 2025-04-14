@@ -18,6 +18,9 @@ function Home() {
     // loading animation
     const [isLoading, setIsLoading] = useState(false);
 
+    // guest mode status object
+    const [isGuestMode, setIsGuestMode] = useState(false);
+
 
     // usestate variables
     const [tradeID, setTradeID] = useState("");
@@ -32,6 +35,20 @@ function Home() {
     const [pnl, setPnl] = useState("");
     const [comment, setComment] = useState("");
 
+
+
+    // notifBar dosplay status object
+    const [notifBarDisplayStatus, setNotifBarDisplayStatus] = useState("none")
+    const [notifMsg, setNotifMsg] = useState("fk u nigga")
+    const showNotification = (message) => {
+        setNotifBarDisplayStatus("flex")
+        setNotifMsg(message)
+        setTimeout(() => {
+            setNotifBarDisplayStatus("none")
+
+        }, 2000);
+    }
+
     // function to handle on submitting new entry
 
     const newTradeEntry = async (e) => {
@@ -39,6 +56,12 @@ function Home() {
 
         // start loading animation
         setIsLoading(true);
+
+        // verify the user
+        if(!username){
+            showNotification("Bruh ur not logged in..")
+            return;
+        }
 
         const newEntry = {
             username: username,
@@ -56,7 +79,7 @@ function Home() {
         };
         console.log(tradeID)
         // const response = await fetch('http://localhost:3000/entry', {
-        const response = await fetch('https://trades-log-mern.vercel.app/entry', {
+            const response = await fetch('https://trades-log-mern.vercel.app/entry', {
             body: JSON.stringify(newEntry),
             headers: { 'Content-Type': 'application/json' },
             method: 'POST'
@@ -74,7 +97,13 @@ function Home() {
     }
 
     const toAllTrades = () => {
-        navigate('/alltrades', { state: { username } });
+        if (username) {
+            navigate('/alltrades', { state: { username } });
+
+        }
+        else {
+            showNotification("login required bruhh !!!");
+        }
     }
 
 
@@ -82,8 +111,8 @@ function Home() {
     return (
 
         <>
-            {username ? console.log("session exists") : <Loading />}
-            {isLoading ? <Loading /> : ''}
+            {/* {username ? console.log("session exists") : hiiii} */}
+            {/* {isLoading ? <Loading /> : ''} */}
 
 
             {/* Navigation Bar component*/}
@@ -236,6 +265,13 @@ function Home() {
             </div>
             {/* footer component */}
             <Footer />
+
+
+            {/* notification bar */}
+
+            <div id={styles.notifBar} style={{ display: notifBarDisplayStatus, textAlign: "center" }}>
+                <p id={styles.notif}>{notifMsg}</p>
+            </div>
         </>
     )
 }

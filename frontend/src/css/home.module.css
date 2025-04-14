@@ -1,14 +1,15 @@
-body{margin: 0 0;
+body {
+    margin: 0 0;
     padding: 0 0;
 }
 
 
-a{
+a {
     text-decoration: none;
 }
 
 
-.flexbox{
+.flexbox {
     display: flex;
     /* margin: 0; */
     /* padding: 0 10%; */
@@ -21,34 +22,36 @@ a{
     /* align-items: space-evenly; */
     justify-content: space-evenly;
 }
-@media(max-width:700px){
-    .flexbox{
+
+@media(max-width:700px) {
+    .flexbox {
         width: 100%;
     }
 }
 
-.flexitem1{
+.flexitem1 {
     /* border: 2px solid white; */
     width: 25%;
     padding: 0% 5%;
 }
 
-@media (max-width : 700px){
-    .flexitem1{
+@media (max-width : 700px) {
+    .flexitem1 {
         width: 100%;
         margin-bottom: 50px;
     }
 }
 
-.flexitem2{
+.flexitem2 {
     /* border: 2px solid green; */
     /* background: linear-gradient(to bottom left, rgb(46, 46, 46), rgb(17, 17, 17)); */
     margin: 0 0%;
     height: 750px;
     text-align: right;
 }
-@media (max-width : 700px){
-    .flexitem2{
+
+@media (max-width : 700px) {
+    .flexitem2 {
         width: 100%;
         height: 100%;
     }
@@ -59,7 +62,7 @@ a{
 
 
 
-#allTrades{
+#allTrades {
     margin-top: 20px;
     font-weight: bold;
     font-size: 20px;
@@ -70,7 +73,7 @@ a{
     color: black;
 }
 
-#table2{
+#table2 {
     background: linear-gradient(to bottom left, rgb(0, 22, 32), rgb(0, 51, 75));
     border-radius: 5px;
     border: 0px solid rgb(0, 174, 255);
@@ -79,14 +82,16 @@ a{
     /* color: rgb(192, 192, 192); */
     width: 100%;
 }
-#dataEnter{
+
+#dataEnter {
     text-align: center;
     color: rgb(255, 255, 255);
     font-size: 25px;
     font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
 }
-.data{
+
+.data {
     font-family: Arial, Helvetica, sans-serif;
     color: rgb(255, 255, 255);
     font-size: 18px;
@@ -94,7 +99,8 @@ a{
     margin: 13px 0px;
     font-weight: bold;
 }
-.dataInput{
+
+.dataInput {
     background-color: transparent;
     text-align: center;
     border: 1px solid rgb(190, 231, 255);
@@ -105,18 +111,20 @@ a{
     height: 25px;
 }
 
-#sel1{
+#sel1 {
     background-color: transparent;
     color: rgb(255, 255, 255);
     border: 1px solid hsl(198, 100%, 90%);
     height: 25px;
     font-family: monospace;
 }
-#sel1 option{
+
+#sel1 option {
     background-color: rgb(0, 0, 0);
     color: white;
 }
-#makeEntry{
+
+#makeEntry {
     background-color: transparent;
     height: 40px;
     margin-top: 20px;
@@ -128,14 +136,46 @@ a{
     border: 1px solid rgb(255, 255, 255);
     color: rgb(255, 255, 255);
 }
-#makeEntry:hover{
+
+#makeEntry:hover {
     background-color: rgb(0, 0, 0);
     color: rgb(255, 255, 255);
     border: none;
 }
 
-#message{
+#message {
     color: white;
     font-size: 40px;
     margin-top: 50px;
+}
+
+#notifBar {
+    background-color: rgb(255, 255, 255);
+    width: 60%;
+    border-radius: 10px;
+    /* border: 1px solid rgb(48, 48, 48); */
+    box-shadow: 0px 0px 25px rgb(63, 63, 63);
+    margin-left: 20%;
+    border: 5px solid rgb(53, 198, 255);
+    height: 140px;
+    position: fixed;
+    display: flex;
+    top: 20%;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width : 700px) {
+    #notifBar {
+        top: 40%;
+        width: 90%;
+        margin-left: 5%;
+    }
+}
+
+#notif {
+    font-size: 25px;
+    color: rgb(0, 177, 231);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
 }

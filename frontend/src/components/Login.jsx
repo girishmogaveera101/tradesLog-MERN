@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../css/login.css';
+import style from '../css/login.module.css';
 import Loading from './Loading';
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -29,8 +29,8 @@ function Login() {
             username: username,
             password: password
         };
-        // const response = await fetch('http://localhost:3000/login',{
-        const response = await fetch('https://trades-log-mern.vercel.app/login', {
+        // const response = await fetch('http://localhost:3000/login', {
+            const response = await fetch('https://trades-log-mern.vercel.app/login', {
             body: JSON.stringify(loginData),
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -54,53 +54,53 @@ function Login() {
     return (
         <>
             {isLoading ? <Loading /> : ""}
-            <div className="flexbox">
-                <p id="footerLogo">TLog</p>
+            <div className={style.flexbox}>
+                <p id={style.footerLogo}>TLog</p>
 
-                <div id='flex-item1'>
+                <div id={style.flexItem1}>
                     <form onSubmit={login}>
-                        <table id="loginCard">
+                    <table id={style.loginCard}>
                             <thead>
                                 <tr>
-                                    <td colSpan="2" id='td1'>
-                                        <p id="dataEnter">log in</p><hr />
+                                    <td colSpan="2" id={style.td1}>
+                                        <p id={style.dataEnter}>log in</p><hr />
                                     </td>
                                 </tr>
                             </thead>
                             <thead>
                                 <tr>
                                     <td>
-                                        <p className="data">username</p>
+                                        <p className={style.data}>username</p>
                                     </td>
                                     <td>
-                                        <input className="dataInput" type="text" value={username} onChange={(e) => { setUsername(e.target.value) }} required />
+                                        <input className={style.dataInput} type="text" value={username} onChange={(e) => { setUsername(e.target.value) }} required />
                                     </td>
                                 </tr>
                             </thead>
                             <thead>
                                 <tr>
                                     <td>
-                                        <p className="data">password</p>
+                                        <p className={style.data}>password</p>
                                     </td>
                                     <td>
-                                        <input className="dataInput" type="password" value={password} onChange={(e) => { setPassword(e.target.value) }} required />
+                                        <input className={style.dataInput} type="password" value={password} onChange={(e) => { setPassword(e.target.value) }} required />
                                     </td>
                                 </tr>
                             </thead>
                             <thead>
                                 <tr>
                                     <td colSpan="2" id='td2'>
-                                        <input type="submit" id="makeEntry" value="login" />
+                                        <input type="submit" id={style.makeEntry} value="login" />
 
                                     </td>
                                 </tr>
                             </thead>
                         </table>
                     </form>
-                    <Link to="/">
-                        <p id='oldUser'>Does not have an Acc?</p>
+                    <Link to="/signin">
+                        <p id={style.oldUser}>Does not have an Acc?</p>
                     </Link>
-                    <p id='msg1'>{msg1}</p>
+                    <p id={style.msg1}>{msg1}</p>
                 </div>
             </div>
         </>
