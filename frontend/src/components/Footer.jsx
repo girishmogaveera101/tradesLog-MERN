@@ -58,7 +58,7 @@ function Footer() {
                 <tbody>
                     <tr>
                         <td>
-                            <p id={styles.copyrightText}>Copyright 2023-2024 by Refsnes Data. Not All Rights Reserved.</p>
+                            <p id={styles.copyrightText}>Copyright 2098-2099. Code for Fun</p>
                         </td>
                     </tr>
                 </tbody>
